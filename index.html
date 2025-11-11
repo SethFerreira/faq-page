@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+    <title>FAQ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #d5d3d3;
+        }
+
+        h1 {
+            font-weight: 400;
+            color: rgb(212, 146, 40);
+            text-transform: capitalize;
+            font-family: 'Edu NSW ACT Cursive', cursive;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 45px;
+        }
+
+        .question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25em;
+            letter-spacing: 2px;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-item {
+            width: 100%;
+            max-width: 37.5em;
+            background-color: #ffffff;
+            margin: 0.63em 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .answer::before {
+            display: block;
+            content: "";
+            margin: 0 auto;
+            margin-bottom: 30px;
+            width: 90%;
+            height: 2px;
+            background-color: rgb(201, 200, 197);
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.25em;
+        }
+
+        .answer.show {
+            max-height: 200px;
+            padding: 1.25em;
+        }
+
+        .icon-open {
+            margin-left: 50px;
+            color: rgb(143, 92, 10);
+            border: 2px solid rgb(212, 146, 40);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .icon-close {
+            display: none;
+            margin-left: 50px;
+            color: #000;
+            border: 2px solid rgb(212, 146, 40);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .question {
+                padding: 1em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>General questions</h1>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="question">
+                    <p>Do you accept all major credit cards?</p>
+                    <ion-icon name="add-outline" class="icon-open"></ion-icon>
+                    <ion-icon name="remove" class="icon-close"></ion-icon>
+                </div>
+                <div class="answer">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sit dignissimos ipsam, eos autem explicabo blanditiis</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="question">
+                    <p>Do you support local farmers?</p>
+                    <ion-icon name="add-outline" class="icon-open"></ion-icon>
+                    <ion-icon name="remove" class="icon-close"></ion-icon>
+                </div>
+                <div class="answer">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sit dignissimos ipsam, eos autem explicabo blanditiis</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="question">
+                    <p>Do you use organic ingredients?</p>
+                    <ion-icon name="add-outline" class="icon-open"></ion-icon>
+                    <ion-icon name="remove" class="icon-close"></ion-icon>
+                </div>
+                <div class="answer">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sit dignissimos ipsam, eos autem explicabo blanditiis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const iconOPen = document.querySelectorAll('.icon-open');
+        const iconClose = document.querySelectorAll('.icon-close');
+        const answer = document.querySelectorAll('.answer');
+
+        iconOPen.forEach((icon, index) => {
+            icon.addEventListener('click', () => {
+                answer[index].classList.add('show');
+                icon.style.display = 'none';
+                iconClose[index].style.display = 'inline';
+            });
+        });
+
+        iconClose.forEach((icon, index) => {
+            icon.addEventListener('click', () => {
+                answer[index].classList.remove('show');
+                icon.style.display = 'none';
+                iconOPen[index].style.display = 'inline';
+            });
+        });
+    </script>
+</body>
+</html>
